@@ -48689,8 +48689,8 @@ a000.D4L = (function (H4L) {
         c.prototype.bpa = function (C) {
           var cv = this.pe.createElement('canvas'),
               gl = cv.getContext('webgl') || cv.getContext('experimental-webgl')
-          C.WebGLRenderer = gl.getParameter(RENDERER)
-          .WebGLVendor = gl.getParameter(VENDOR)
+          C.WebGLRenderer = gl.getParameter(gl.RENDERER)
+          C.WebGLVendor = gl.getParameter(gl.VENDOR)
         }
         c.prototype.IJb = function (C) {
           C.switchAwaySummary = {
