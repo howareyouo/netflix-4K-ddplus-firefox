@@ -27837,7 +27837,7 @@ a000.D4L = (function (H4L) {
           ]
         }
         b.ao = c
-        c.PP = 'video/mp4;codecs={0};'
+        c.PP = 'video/mp4; codecs={0};'
       }, function (r, b) {
         function a () {}
 
@@ -34591,7 +34591,7 @@ a000.D4L = (function (H4L) {
           return h
         }
         b.uB = c
-        c.PP = 'video/mp4;codecs="{0},mp4a";'
+        c.PP = 'video/mp4; codecs="{0},mp4a";'
       }, function (r, b) {
         _esm(b)
         b.oca = b.oB = void 0
@@ -47610,7 +47610,7 @@ a000.D4L = (function (H4L) {
           var g
           d = this.Zta[d]
           g = ''
-          return d ? (Array.isArray(d) && (g = 1 < d.length ? ' ' + d[1] : '', d = d[0]), d = m('{0}/mp4;codecs={1};{2}', this.Ara[this.mediaType], d, g), d = this.Ny(d), Promise.resolve(d)) : Promise.resolve(!1)
+          return d ? (Array.isArray(d) && (g = 1 < d.length ? ' ' + d[1] : '', d = d[0]), d = m('{0}/mp4; codecs={1};{2}', this.Ara[this.mediaType], d, g), d = this.Ny(d), Promise.resolve(d)) : Promise.resolve(!1)
         }
         c.prototype.aAb = function (d) {
           var g = {}
@@ -47663,7 +47663,7 @@ a000.D4L = (function (H4L) {
           return h || this.config().oC
         }
         b.V_ = c
-        c.PP = 'audio/mp4;codecs={0};'
+        c.PP = 'audio/mp4; codecs={0};'
       }, function (r, b) {
         _esm(b)
         b.SFa = 'MediaCapabilitiesDetectorSymbol'
@@ -48679,9 +48679,8 @@ a000.D4L = (function (H4L) {
           (void 0 === J ? 0 : J) && (G.playgraph_trace = C.P5a)
         }
         c.prototype.q_a = function (C) {
-          var G, J
-          G = this.j.N$b
-          J = G && G.Qbc
+          var G = this.j.N$b, 
+            J = G && G.Qbc
           G && G.iJb && (C.htwbr = G.iJb, C.pbtwbr = G.bta, C.hptwbr = G.P$b)
           G && G.wWb && (C.rr = G.wWb, C.ra = G.Mbc)
           G && J && 0 < (J.length || 0) && (C.qe = JSON.stringify(J))
@@ -51701,23 +51700,22 @@ a000.D4L = (function (H4L) {
         h = a(133)
         k = a(15)
         c.prototype.show = function (shiftKey) {
-          if (!this.oT) {
+          if (!this.seen) {
             var el = this.Mfa
             document.body.appendChild(this.Mfa)
             !shiftKey && (el.style.opacity = 1)
-            this.oT = 1
+            this.seen = 1
             this.HOa()
           }
         }
         c.prototype.Qr = function () {
-          this.oT && (document.body.removeChild(this.Mfa), this.oT = !1)
+          this.seen && (document.body.removeChild(this.Mfa), this.seen = !1)
         }
         c.prototype.toggle = function (shiftKey) {
-          this.oT ? this.Qr() : this.show(shiftKey)
+          this.seen ? this.Qr() : this.show(shiftKey)
         }
         c.prototype.Kab = function () {
           var p, v, t, w
-
           function n (u, x, y) {
             var z, A, B
             A = []
@@ -51743,15 +51741,12 @@ a000.D4L = (function (H4L) {
               return A.kh === u
             }).forEach(function (A) {
               -1 === y.indexOf(A) && z.push({
-                stream: {
-                  bitrate: A.bitrate
-                },
+                stream: { bitrate: A.bitrate },
                 disallowedBy: ['manual']
               })
             })
             return z
           }
-
           v = this.j.Ft()
           t = this.j.fH().sort(function (u, x) {
             return u.bitrate - x.bitrate
@@ -51801,41 +51796,35 @@ a000.D4L = (function (H4L) {
           })
         }
         c.prototype.HOa = function () {
-          var n, q, p, v
-          n = this
+          var q, p, v, n = this
           q = this.j.oc.value
           p = this.j.xg.value
           v = this.j.hi
-          q && (v = v.slice(), v.sort(function (t, w) {
-            return t.uc - w.uc
-          }), this.dha(this.alb, q.streams.map(function (t) {
-            return {
-              value: t.bitrate, caption: t.bitrate, selected: t == n.j.jh.value
-            }
-          })))
-          p && (this.dha(this.tha, p.streams.map(function (t) {
-            var w, u
-            w = n.j.VN.Yu(t)
-            t = t.bitrate
-            u = '' + t
-            w && (u += ' (' + w.join('|') + ')')
-            return {
-              value: t, caption: u, selected: n.kU ? n.TS[t] : !w
-            }
-          })), this.tha.removeAttribute('disabled'))
-          v && (this.dha(this.ufa, v.map(function (t) {
-            return {
-              value: t.id, caption: '[' + t.id + '] ' + t.name, selected: t == n.j.qc[f.Tb.Ta.Mb].value
-            }
-          })), this.ufa.removeAttribute('disabled'))
+          if (q) {
+            v = v.slice()
+            v.sort(function (t, w) {return t.uc - w.uc})
+            this.dha(this.alb, q.streams.map(function (t) {
+              return {value: t.bitrate, caption: t.bitrate, selected: t == n.j.jh.value}
+            }))
+          }
+          if (p) {
+            this.dha(this.tha, p.streams.map(function (t) {
+              return {value: t.bitrate, caption: t.bitrate, selected: b == n.j.We.value.bitrate}
+            }))
+          }
+          if (v) {
+            this.dha(this.ufa, v.map(function (t) {
+              return {value: t.id, caption: '[' + t.id + '] ' + t.name, selected: t == n.j.qc[f.Tb.Ta.Mb].value}
+            }))
+          }
         }
         c.prototype.Rob = function () {
-          this.oT && this.HOa()
+          this.seen && this.HOa()
         }
         c.prototype.Dfa = function (n) {
           var q = m.createElement('DIV', 'display:inline-block;margin:5px'),
               n = m.createElement('DIV', 'margin:2px', n),
-              p = m.createElement('select', '', '', {disabled: 1, multiple: 1})
+              p = m.createElement('select', '', '', {multiple: 1})
           q.appendChild(n)
           q.appendChild(p)
           this.Mfa.appendChild(q)
@@ -51857,7 +51846,6 @@ a000.D4L = (function (H4L) {
         b.GIa = c
       }, function (r, b, a) {
         var f, l, m, d, g
-
         function c (h, k) {
           this.wma = h
           this.JG = {position: 'absolute', left: '0', top: '0', right: '0', bottom: '0', display: 'block'}
@@ -51866,7 +51854,6 @@ a000.D4L = (function (H4L) {
           this.M8a(k)
           this.uWa = this.AFb(this.wma)
         }
-
         _esm(b)
         b.oLa = void 0
         f = a(30)
@@ -51967,9 +51954,7 @@ a000.D4L = (function (H4L) {
           h && this.NO()
         }
         c.prototype.AFb = function (h) {
-          var k, n
-          k = this
-          n = {}
+          var k = this, n = {}
           g.te(h, function (q, p) {
             n[q] = k.jOb(p)
           })
@@ -52116,12 +52101,8 @@ a000.D4L = (function (H4L) {
               0 > n.top && n.top + n.height < k.height ? n.top += c.np(-n.top, k.height - (n.top + n.height)) : n.top + n.height > k.height && 0 < n.top && (n.top -= c.np(n.top + n.height - k.height, n.top))
             })
           })(f, l)
-          for (var g = 0; 50 > g && m(f, !0, l); g++) {
-
-          }
-          for (g = 0; 50 > g && m(f, !1, l); g++) {
-
-          }
+          for (var g = 0; 50 > g && m(f, !0, l); g++) {}
+          for (g = 0; 50 > g && m(f, !1, l); g++) {}
           return f
         }
       }, function (r, b, a) {
@@ -52145,9 +52126,7 @@ a000.D4L = (function (H4L) {
         }
 
         function l (n, q, p, v, t) {
-          var w, u
-          w = n.style
-          u = h.XV(n.text)
+          var w = n.style, u = h.XV(n.text)
           for (n = n.lineBreaks; n--;) {
             u = '<br />' + u
           }
@@ -52232,10 +52211,7 @@ a000.D4L = (function (H4L) {
         b.cCb = m
         b.eCb = d
         b.zVa = function (n) {
-          var q = {
-            display: 'block',
-            'white-space': 'nowrap'
-          }
+          var q = {display: 'block', 'white-space': 'nowrap'}
           switch (n.region.horizontalAlignment) {
             case 'left':
               q['text-align'] = 'left'
@@ -59637,12 +59613,12 @@ a000.D4L = (function (H4L) {
           return [{
             initDataTypes: [n.wx],
             videoCapabilities: [{
-              contentType: 'video/mp4;codecs=avc1.42E01E',
+              contentType: 'video/mp4; codecs=avc1.42E01E',
               robustness: ''
             }
             ],
             audioCapabilities: [{
-              contentType: 'audio/mp4;codecs=mp4a.40.2',
+              contentType: 'audio/mp4; codecs=mp4a.40.2',
               robustness: ''
             }
             ],
@@ -101390,8 +101366,8 @@ a000.D4L = (function (H4L) {
           this.sn = q
           this.jb = p
           this.i$a = v
-          this.Vpb = 'video/mp4;codecs={0}'
-          this.dlb = 'audio/mp4;codecs={0}'
+          this.Vpb = 'video/mp4; codecs={0}'
+          this.dlb = 'audio/mp4; codecs={0}'
           q = this.sn.SM(l.se.Qs)
           this.Upb = d.Gd.DTa(q)
         }
@@ -102236,7 +102212,7 @@ a000.D4L = (function (H4L) {
           }
           if (this.mediaCapabilities.P2a) {
             k = {
-              contentType: 'video/mp4;codecs="avc1.640028"',
+              contentType: 'video/mp4; codecs="avc1.640028"',
               width: d.width, height: d.height, bitrate: 1E3 * d.bitrate, framerate: 24
             }
             this.mediaCapabilities.$la(k).then(function (n) {
@@ -102374,14 +102350,14 @@ a000.D4L = (function (H4L) {
           var q, p
           q = {}
           p = {
-            contentType: 'audio/mp4;codecs=mp4a.40.2'
+            contentType: 'audio/mp4; codecs=mp4a.40.2'
           }
           q[m.ze.GE] = p
           q[m.ze.aDa] = p
           q[m.ze.HE] = p
           q[m.ze.tF] = p
           p = {
-            contentType: 'audio/mp4;codecs=ec-3'
+            contentType: 'audio/mp4; codecs=ec-3'
           }
           q[m.ze.xQ] = p
           q[m.ze.Rba] = p
@@ -116917,15 +116893,13 @@ a000.D4L = (function (H4L) {
           this.visible ? this.Qr() : this.show()
         }
         c.prototype.xV = function () {
-          var x, y, z, A, B, D, E, F, K, I, M, R, H, Q, N, L, P, T, U, da, ja, ya, pa, ca, va, O, S, ka, ma, ta, Ka, kb, $a, C = [], G = this.gk()
+          var x, y, z, A, B, D, E, F, K, I, M, R, H, Q, N, L, P, T, U, da, ja, ya, pa, ca, va, O, S, ka, ma, ta, Ka, kb, $a, C = []
           $a = this.j.We.value ? this.j.We.value.framerate : 0
           da = this.j.qc[f.Tb.Ta.Mb].value
           ja = this.j.qc[f.Tb.Ta.Wb].value
           C.push({
             Version: '6.0033.414.911',
-            Esn: G ? G.Vk : 'UNKNOWN',
-            PBCID: this.j.Fg,
-            'Current CDN (a/v)': (ja ? ja.name + ', Id: ' + ja.id : '?') + ' / ' + (da ? da.name + ', Id: ' + da.id : '?')
+            'Current CDN (a/v)': (ja ? ja.name + '' : '?') + ' / ' + (da ? da.name : '?')
           })
           if (this.j.jf.value && this.j.oe.value) {
             ya = this.j.jf.value.stream
@@ -116943,9 +116917,9 @@ a000.D4L = (function (H4L) {
             Ka = (/xheaac/).test(ta) ? 'xhe-aac' : (/heaac/).test(ta) ? 'he-aac' : (/ddplus/).test(ta) ? 'ddplus' : 'unknown';
             (/atmos/).test(ta) && (Ka += ', atmos')
             C.push({
-              'Audio Track': pa.Wd + ', Id: ' + pa.trackId + ', Channels: ' + pa.channels + ', Codec: ' + S + ' (' + Ka + ')',
+              'Audio Track': pa.Wd + ', Channels: ' + pa.channels + ', Codec: ' + S + ' (' + Ka + ')',
               'Video Track': 'Codec: ' + O + ' (' + ma + ')',
-              'Timed Text Track': va ? va.Wd + ', Profile: ' + va.profile + ', Id: ' + va.trackId : 'none',
+              'Timed Text Track': va ? va.Wd + ', Profile: ' + va.profile : 'none',
               'HDR support': this.Aoa ? this.Aoa.result + ' (' + this.Aoa.reason + ')' : 'unknown'
             })
           }
@@ -122340,7 +122314,7 @@ a000.D4L = (function (H4L) {
                   if (void 0 === h) {
                     try {
                       q = nb.MSMediaKeys;
-                      h = q && q.isTypeSupportedWithFeatures ? "probably" === q.isTypeSupportedWithFeatures("com.microsoft.playready.software", 'video/mp4;codecs="avc1,mp4a";features="display-res-x=3840,display-res-y=2160,display-bpc=8"') : !1;
+                      h = q && q.isTypeSupportedWithFeatures ? "probably" === q.isTypeSupportedWithFeatures("com.microsoft.playready.software", 'video/mp4; codecs="avc1,mp4a";features="display-res-x=3840,display-res-y=2160,display-bpc=8"') : !1;
                     } catch (p) {
                       g.error("hasUltraHdDisplay exception");
                       h = !0;
