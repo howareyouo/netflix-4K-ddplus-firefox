@@ -50,8 +50,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "31d27eeded66647d826e76320366bcf1b3e432d6@temporary-addon",
-      "strict_min_version": "42.0"
+      "id": "howareyouo@github.com"
     }
   }
 }
