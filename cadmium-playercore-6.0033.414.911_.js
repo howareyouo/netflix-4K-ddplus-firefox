@@ -51727,9 +51727,7 @@ a000.D4L = (function (H4L) {
               }), B = z = void 0)
             })
             if (void 0 !== B && void 0 !== z) {
-              A.push({
-                min: B, max: z
-              })
+              A.push({min: B, max: z})
               B = z = void 0
             }
             return A
@@ -51773,9 +51771,7 @@ a000.D4L = (function (H4L) {
           this.Kab()
           if (n = this.j.hi) {
             v = this.ufa.value
-            n = n.filter(function (t) {
-              return t.id == v
-            })[0]
+            n = n.filter(function (t) {return t.id == v})[0]
             q = this.j.qc[f.Tb.Ta.Mb].value
             n && n != q && (n.RRa = {
               testreason: 'streammanager',
@@ -51796,24 +51792,24 @@ a000.D4L = (function (H4L) {
           })
         }
         c.prototype.HOa = function () {
-          var q, p, v, n = this
-          q = this.j.oc.value
-          p = this.j.xg.value
-          v = this.j.hi
+          var q, p, v, x = this
+          q = x.j.oc.value
+          p = x.j.xg.value
+          v = x.j.hi
           if (q) {
             v = v.slice()
             v.sort(function (t, w) {return t.uc - w.uc})
-            this.dha(this.alb, q.streams.map(function (t) {
+            x.dha(x.alb, q.streams.map(function (t) {
               return {value: t.bitrate, caption: t.bitrate, selected: t == n.j.jh.value}
             }))
           }
           if (p) {
-            this.dha(this.tha, p.streams.map(function (t) {
-              return {value: t.bitrate, caption: t.bitrate, selected: b == n.j.We.value.bitrate}
+            x.dha(x.tha, p.streams.map(function (t) {
+              return {value: t.bitrate, caption: t.bitrate, selected: t.bitrate == n.j.We.value.bitrate}
             }))
           }
           if (v) {
-            this.dha(this.ufa, v.map(function (t) {
+            x.dha(x.ufa, v.map(function (t) {
               return {value: t.id, caption: '[' + t.id + '] ' + t.name, selected: t == n.j.qc[f.Tb.Ta.Mb].value}
             }))
           }
