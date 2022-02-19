@@ -25,11 +25,7 @@ function readOptions() {
 }
 
 function closePopup() {
-  browser.tabs.query({ active: true }).then(tabs => {
-    browser.tabs.executeScript(tabs[0].id, {
-      code: 'location.reload()'
-    })
-  })
+  browser.tabs.reload()
   window.close()
 }
 

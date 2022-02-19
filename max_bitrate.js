@@ -1,35 +1,24 @@
-let getElementByXPath = function (xpath) {
-  return document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
-}
-
 let fn = function () {
-  const VIDEO_PLAYING = document.evaluate('//*[@id]/video', document).iterateNext()
-  if (!VIDEO_PLAYING) {
-    return false
+  if (!document.querySelector('video')) {
+    return
   }
-
-  const VIDEO_SELECT = getElementByXPath('//div[text()=\'Video Bitrate\']')
-  const AUDIO_SELECT = getElementByXPath('//div[text()=\'Audio Bitrate\']')
-  const BUTTON = getElementByXPath('//button[text()=\'Override\']')
 
   window.dispatchEvent(new KeyboardEvent('keydown', {
-    shiftKey: true, ctrlKey: true, altKey: true, keyCode: 83
+    shiftKey: true, altKey: true, keyCode: 83
   }))
 
-  if (!(VIDEO_SELECT && AUDIO_SELECT && BUTTON)) {
-    return false
+  var selects = document.querySelectorAll('.player-streams select')
+  var btns = document.querySelector('.player-streams button')
+  if (selects.length + btns.length < 5) {
+    return
   }
 
-  [VIDEO_SELECT, AUDIO_SELECT].forEach(function (el) {
-    let options = el.parentElement.querySelectorAll('select > option')
-
-    for (var i = 0; i < options.length - 1; i++) {
-      options[i].removeAttribute('selected')
-    }
-
+  for (var i = selects.length - 2; i >= 0; i--) {
+    let options = selects[i].options
+    Array.from(options).forEach(o => o.removeAttribute('selected'))
     options[options.length - 1].setAttribute('selected', 'selected')
-  })
-  BUTTON.click()
+  }
+  btn[0].click()
   return true
 }
 
@@ -38,13 +27,14 @@ let run = function () {
 }
 
 const WATCH_REGEXP = /netflix.com\/watch\/.*/
-let oldUrl = location.href
+let lastUrl = location.href
 if (window.setMaxBitrate) {
   setInterval(function () {
-    let newUrl = location.href
-    if (newUrl !== oldUrl && WATCH_REGEXP.test(newUrl)) {
+    let currentUrl = location.href
+    currentUrl.mat
+    if (currentUrl !== lastUrl && WATCH_REGEXP.test(currentUrl)) {
       console.log('Netflix max_bitrate enabled')
-      oldUrl = newUrl
+      lastUrl = currentUrl
       run()
     }
   }, 500)
