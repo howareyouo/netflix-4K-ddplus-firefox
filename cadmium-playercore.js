@@ -51658,7 +51658,6 @@ a000.D4L = (function (H4L) {
         }
       }, function (r, b, a) {
         var f, l, m, d, g, h, k
-
         function c (n) {
           var q = this, p, v, t
           this.j = n
@@ -51670,6 +51669,7 @@ a000.D4L = (function (H4L) {
           this.TS = {}
           this.v6 = d.ka.get(g.Tm)
           this.Mfa.appendChild(this.rfa)
+          this.wrap = document.querySelector('.watch-video')
           p = m.createElement('BUTTON', '', 'Override')
           p.addEventListener('click', this.Vkb.bind(this))
           this.rfa.appendChild(p)
@@ -51691,7 +51691,6 @@ a000.D4L = (function (H4L) {
           n.oc.addListener(t)
           n.xg.addListener(t)
         }
-
         _esm(b)
         b.GIa = void 0
         f = a(47)
@@ -51704,14 +51703,14 @@ a000.D4L = (function (H4L) {
         c.prototype.show = function (shiftKey) {
           if (!this.seen) {
             var el = this.Mfa
-            document.body.appendChild(this.Mfa)
+            this.wrap.appendChild(this.Mfa)
             !shiftKey && (el.style.opacity = 1)
             this.seen = 1
             this.HOa()
           }
         }
         c.prototype.Qr = function () {
-          this.seen && (document.body.removeChild(this.Mfa), this.seen = !1)
+          this.seen && (this.wrap.removeChild(this.Mfa), this.seen = !1)
         }
         c.prototype.toggle = function (shiftKey) {
           this.seen ? this.Qr() : this.show(shiftKey)
