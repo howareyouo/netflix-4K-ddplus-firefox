@@ -37,7 +37,7 @@
     ]
   },
   "web_accessible_resources": [
-    "cadmium-playercore-6.0033.414.911.js",
+    "cadmium-playercore.js",
     "max_bitrate.js"
   ],
   "permissions": [
