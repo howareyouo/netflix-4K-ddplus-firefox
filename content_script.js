@@ -20,7 +20,6 @@ var conf = {
 
 // very messy workaround for accessing chrome storage outside of background / content scripts
 browser.storage.local.get(conf, items => {
-  console.log(items)
   var text = ''
   Object.keys(conf).forEach(key => {
     text += text ? ',' : 'var '
