@@ -41,16 +41,15 @@ if (window.setMaxBitrate) {
 }
 
 
+const seeks = {a: -5, d: 5, z: -10, c: 10}
 document.addEventListener('keydown', function(e) {
-  if (e.target.isContentEditable || e.target.tagName == 'INPUT') { return }
-  let key = e.key.toLowerCase(), val = 5
-  switch(key) {
-    case 'a':
-      val = -5
-    case 'd':
-      let videoPlayer = window.netflix.appContext.state.playerApp.getAPI().videoPlayer
-      let playerSessionId = videoPlayer.getAllPlayerSessionIds()[0]
-      let player = videoPlayer.getVideoPlayerBySessionId(playerSessionId)
-      player.seek(player.getCurrentTime() + val * 1000)
+  if (e.target.isContentEditable || e.target.tagName == 'INPUT' || e.ctrlKey || e.altKey) return
+  let key = e.key.toLowerCase()
+  let val = seeks[key]
+  if (val) {
+    let videoPlayer = window.netflix.appContext.state.playerApp.getAPI().videoPlayer
+    let playerSessionId = videoPlayer.getAllPlayerSessionIds()[0]
+    let player = videoPlayer.getVideoPlayerBySessionId(playerSessionId)
+    player.seek(player.getCurrentTime() + val * 1000)  
   }
 })

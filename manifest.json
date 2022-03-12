@@ -1,53 +1,43 @@
 {
-  "manifest_version": 2,
-  "name": "Netflix 4K-DDplus (Firefox)",
-  "description": "Watch Netflix more comfortably on your computer.",
-  "version": "1.1",
-  "author": "org by truedread ，modify by https://github.com/lkmvip/netflix-4K-DDplus",
+  "content_scripts": [{
+    "matches": [
+      "*://assets.nflxext.com/*/ffe/player/html/*", 
+      "*://*.netflix.com/*"
+    ],
+    "run_at": "document_start",
+    "css": ["netflix.css"],
+    "js": ["content_script.js"]
+  }],
   "browser_action": {
     "default_title": "Netflix Options",
-    "default_popup": "options/options.html",
     "default_icon": {
       "128": "img/icon128.png"
-    }
+    },
+    "default_popup": "options/options.html"
   },
-  "icons": {
-    "48": "img/icon48.png",
-    "128": "img/icon128.png"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "*://assets.nflxext.com/*/ffe/player/html/*",
-        "*://www.netflix.com/*",
-        "*://netflix.com/*"
-      ],
-      "js": [
-        "content_script.js"
-      ],
-      "css": [
-        "netflix.css"
-      ],
-      "run_at": "document_start"
-    }
-  ],
+  "version": "1.1",
   "background": {
-    "scripts": [
-      "background.js"
-    ]
+    "scripts": ["background.js"]
   },
   "web_accessible_resources": [
     "cadmium-playercore.js",
     "max_bitrate.js"
   ],
+  "name": "Netflix 4K-DDplus (Firefox)",
+  "manifest_version": 2,
+  "description": "Watch Netflix more comfortably on your computer.",
+  "author": "modify by https://github.com/lkmvip/netflix-4K-DDplus",
   "permissions": [
     "storage",
     "webRequest",
     "webRequestBlocking",
     "*://assets.nflxext.com/*/ffe/player/html/*",
-    "*://www.netflix.com/*",
-    "*://netflix.com/*"
+    "*://*.netflix.com/*"
   ],
+  "icons": {
+    "128": "img/icon128.png",
+    "48": "img/icon48.png"
+  },
   "browser_specific_settings": {
     "gecko": {
       "id": "howareyouo@github.com"
