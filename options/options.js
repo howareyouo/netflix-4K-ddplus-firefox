@@ -8,19 +8,19 @@ function findOptions() {
   return obj
 }
 
-function saveOption() {
-  var options = findOptions()
-  browser.storage.local.set(options).then(() => {
-    document.querySelector('i').style.opacity = 1
-  })
-}
-
 function readOptions() {
   var options = findOptions()
   browser.storage.local.get(options).then(items => {
     for (key in items) {
       document.getElementById(key).checked = items[key]
     }
+  })
+}
+
+function saveOption() {
+  var options = findOptions()
+  browser.storage.local.set(options).then(() => {
+    document.querySelector('i').style.opacity = 1
   })
 }
 
