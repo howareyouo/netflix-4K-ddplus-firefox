@@ -16753,12 +16753,8 @@ a000.n9I = function() {
       b.zK = b.h1 = b.Teb = b.Oeb = b.Qeb = b.Reb = b.BAa = b.Neb = b.Peb = b.AAa = b.Seb = b.Zeb = b.Xeb = b.Yeb = b.Web = b.Pgb = b.Ogb = b.Ngb = b.Xib = b.Yib = b.jy = b.tGa = b.uGa = b.yK = b.GCa = b.Rgb = b.ada = b.G0 = b.Qjb = b.wlb = b.pGa = b.Heb = b.SBa = b.w1 = b.DF = b.v1 = b.oGa = b.iy = b.Geb = b.mAa = b.Lib = b.dmb = b.Wib = b.Vib = b.plb = b.olb = b.$l = b.$e = b.DKa = b.wl = void 0;
       b.mfa = void 0;
       b.wl = function() {};
-      b.DKa = function() {
-        return !0;
-      };
-      b.$e = {
-        aa: !0
-      };
+      b.DKa = function() {return !0};
+      b.$e = {aa: !0};
       b.$l = 1E3;
       b.olb = 86400;
       b.plb = 604800;
@@ -17088,13 +17084,9 @@ a000.n9I = function() {
           ua = {};
           q.ac(ua, Ua);
           D && D.length && p.forEach.call(D, function(Za) {
-            u.Te(Za) ? ab(Za): u.Ph(Za) && q.ac(ua, Za, {
-              lO: !0
-            });
+            u.Te(Za) ? ab(Za): u.Ph(Za) && q.ac(ua, Za, {lO: !0});
           });
-          T = q.ac({}, m.X6(), {
-            lO: !0
-          });
+          T = q.ac({}, m.X6(), {lO: !0});
           if (Ua = m.Z7a().cadmiumconfig)(d.log.info("Config cookie loaded", Ua), ab(Ua));
           if (d.oa.get(A.yl).N3 || ua.istestaccount)((0, q.ac)(ua, T), R = T);
         })(F);
@@ -17143,9 +17135,7 @@ a000.n9I = function() {
           lDb: C(J, H("enableHdcp"), !1),
           rx: C(J, H("prepareCadmium"), !1),
           Orb: C(J, H("acceptManifestOnPrepareItemParams"), !0),
-          YUb: C(M, "ppmconfig", {
-            maxNumberTitlesScheduled: 1
-          }),
+          YUb: C(M, "ppmconfig", {maxNumberTitlesScheduled: 1}),
           FUb: C(J, H("playerPredictionModelV2"), !0),
           vV: C(J, H("enableLdlPrefetch"), !1),
           sWa: C(J, H("enableMediaPrefetch"), !1),
@@ -17187,15 +17177,11 @@ a000.n9I = function() {
           XUb: C(J, H("powerEfficientForVideo"), !1),
           OOb: C(J, "logMediaPipelineStatus", !1),
           WY: C(J, H("renderDomDiagnostics"), !0),
-          Y2a: function() {
-            return -1;
-          },
+          Y2a: function() {return -1},
           jO: C(O, H("logDisplayMaxEntryCount"), ra.jO, -1),
           UOb: C(O, H("logToConsoleLevel"), -1),
           bac: C(O, H("bladerunnerCmdHistorySize"), 10),
-          Kw: function() {
-            return ea.Kw;
-          },
+          Kw: function() {return ea.Kw},
           Era: C(J, "logErrorIfEsnNotProvided", !0),
           Cma: C(J, "enforceSinglePlayback", ra.Cma),
           G5: C(J, "enforceSingleSession", ra.G5),
@@ -17205,18 +17191,10 @@ a000.n9I = function() {
           hdc: C(J, "nrdpAlwaysShowUIOverlay", !1),
           jdc: C(J, "nrdpValidateSSOTokens", !0),
           gec: C(J, "showNrdpDebugBadging", !1),
-          Iba: function() {
-            return ea.Iba;
-          },
-          fA: function() {
-            return ea.fA;
-          },
-          pM: function() {
-            return ea.pM;
-          },
-          OJ: function() {
-            return ea.OJ;
-          },
+          Iba: function() {return ea.Iba},
+          fA: function() {return ea.fA},
+          pM: function() {return ea.pM},
+          OJ: function() {return ea.OJ},
           hdb: C(I, H("verbosePlaybackInfoDenominator"), 0),
           V$: C(J, "renderTimedText", !0),
           ZUb: C(J, "preBufferTimedText", !0),
@@ -48162,15 +48140,10 @@ a000.n9I = function() {
         H && K && 0 < (K.length || 0) && (C.qe = JSON.stringify(K));
       };
       c.prototype.bqa = function(C) {
-        var H, K, O;
-        try {
-          H = this.re.createElement("canvas");
-          K = H.getContext("webgl") || H.getContext("experimental-webgl");
-          if (K) {
-            O = K.getExtension("WEBGL_debug_renderer_info");
-            O && (C.WebGLRenderer = K.getParameter(O.UNMASKED_RENDERER_WEBGL), C.WebGLVendor = K.getParameter(O.UNMASKED_VENDOR_WEBGL));
-          }
-        } catch (I) {}
+        var cv = this.pe.createElement('canvas'),
+            gl = cv.getContext('webgl') || cv.getContext('experimental-webgl')
+        C.WebGLRenderer = gl.getParameter(gl.RENDERER)
+        C.WebGLVendor = gl.getParameter(gl.VENDOR)
       };
       c.prototype.zLb = function(C) {
         C.switchAwaySummary = {
@@ -120750,7 +120723,9 @@ a000.n9I = function() {
             useVP9 && I.push(
               'vp9-profile0-L30-dash-cenc',
               'vp9-profile0-L31-dash-cenc',
-              'vp9-profile0-L40-dash-cenc'
+              'vp9-profile0-L40-dash-cenc',
+              'playready-h264hpl30-dash',
+              'playready-h264hpl31-dash'
             )
             useAVC && I.push(
               'playready-h264mpl30-dash',
@@ -120763,7 +120738,6 @@ a000.n9I = function() {
               'playready-h264hpl40-dash'
             )
           }
-          console.log(I)
           useAllSub && (E.showAllSubDubTracks = 1)
           L = {
             type: "standard",
@@ -124268,9 +124242,7 @@ a000.n9I = function() {
           h = k.next().value;
           k = k.next().value;
           h = g.ANb[h];
-          1080 < h && (g.U1a = "usable" === k, g.A2b.set(k, {
-            height: h
-          }));
+          1080 < h && (g.U1a = "usable" === k, g.A2b.set(k, {height: h}))
         });
       };
       c.prototype.E0b = function() {
@@ -124954,18 +124926,11 @@ a000.n9I = function() {
             name: "AES-CBC"
           }, !1, ["encrypt", "decrypt"])), m.AI(n.lq.importKey("raw", F, {
             name: "HMAC",
-            hash: {
-              name: "SHA-256"
-            }
+            hash: {name: "SHA-256"}
           }, !1, ["sign", "verify"]))]).then(function(G) {
-            D({
-              success: !0,
-              cryptoContext: z(G[0], G[1])
-            });
+            D({success: !0, cryptoContext: z(G[0], G[1])});
           }, function() {
-            D({
-              success: !1
-            });
+            D({success: !1});
           });
         }
 
@@ -124973,10 +124938,7 @@ a000.n9I = function() {
           function F(G) {
             G = new g.dR((0, d.Tr)(G));
             G.dB();
-            return {
-              iv: G.Y7a(),
-              NDb: G.Y7a()
-            };
+            return {iv: G.Y7a(), NDb: G.Y7a()}
           }
           return {
             encrypt: function(G, C) {
@@ -124995,15 +124957,10 @@ a000.n9I = function() {
                 I.Gdb(H);
                 I.Gdb(K);
                 K = d.TC(O);
-                C({
-                  success: !0,
-                  encryptedDataAsn1Base64: K
-                });
+                C({success: !0, encryptedDataAsn1Base64: K});
               }, function(K) {
                 h.kb(!1, "Encrypt error: " + K);
-                C({
-                  success: !1
-                });
+                C({success: !1})
               });
             },
             decrypt: function(G, C) {
