@@ -34,7 +34,7 @@ https://microsoftedge.microsoft.com/addons/detail/oikpkeeoofpiapmjioabikmgjeaogg
 - ~: 视屏信息(Video info)
 - x: 比特率选择框 (Bitrate selet)
 - w/s: 声音调节 (Volumn Control)
-- q/e/a/d/z/x: 快速/快退 (Fast Forward/Backward) 15s/5s/10s
+- q/e/a/d/z/x: 快进/快退 (Fast Forward/Backward) 15s/5s/10s
     
 ATMOS is very, very amazing  
 https://www.netflix.com/search?q=ATMOS  
