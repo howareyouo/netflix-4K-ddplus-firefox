@@ -27,7 +27,7 @@ https://microsoftedge.microsoft.com/addons/detail/oikpkeeoofpiapmjioabikmgjeaogg
 **Other OS And Browser(Includes portable edge)**  
 1, Max 1080P   
 2, HE-AAC Audio (lower than DDplus)   
-3, AV1/VP9/AVC/AVC-High code can be use (Not all video of them available, try different choice)
+3, AV1/VP9/AVC/AVC-High codecs can be use (Not all video support all of them, try different choice)
   
 
 **快捷键(Shortcuts)**
