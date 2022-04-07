@@ -27,14 +27,14 @@ https://microsoftedge.microsoft.com/addons/detail/oikpkeeoofpiapmjioabikmgjeaogg
 **Other OS And Browser(Includes portable edge)**  
 1, Max 1080P   
 2, HE-AAC Audio (lower than DDplus)   
-3, AVC/Avchigh code can be use   
+3, AV1/VP9/AVC/AVC-High code can be use (Not all video of them available, try different choice)
   
 
-**快捷键**
-- ~: 视屏信息
-- x: 比特率选择框
-- w/s: 声音调节
-- q/e/a/d/z/x: 快速/快退 (15s/5s/10s)
+**快捷键(Shortcuts)**
+- ~: 视屏信息(Video info)
+- x: 比特率选择框 (Bitrate selet)
+- w/s: 声音调节 (Volumn Control)
+- q/e/a/d/z/x: 快速/快退 (Fast Forward/Backward) 15s/5s/10s
     
 ATMOS is very, very amazing  
 https://www.netflix.com/search?q=ATMOS  
